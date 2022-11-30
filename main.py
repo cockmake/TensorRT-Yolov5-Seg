@@ -68,9 +68,9 @@ def process(format_info):
         out_prob = out_prob[out_prob[:, 4] > confidence]
         out_prob[:, 0] -= out_prob[:, 2] / 2
         out_prob[:, 1] -= out_prob[:, 3] / 2
-        # 续74行 由 xywh 形成xyxy
+        # 续87行 xywh 形成xyx
 
-
+        # 拷贝一份计算nms
         out_prob_clone = out_prob.clone()  # format时的偏差
         out_prob_clone[:, 0] -= dif_w
         out_prob_clone[:, 1] -= dif_h  # 在GPU上先做减法
