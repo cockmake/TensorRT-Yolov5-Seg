@@ -103,7 +103,7 @@ def video(camera_usb=0):
         bboxes, masks, class_conf = process(format_info)
         if bboxes is not None:
             apply_bboxes(img_src, bboxes, class_conf)
-            apply_masks(img_src, masks, format_info)
+            img_src = apply_masks(img_src, masks, format_info)
         print("FPS:", 1 / (time.time() - t))
         cv.imshow("1", img_src)
         cv.waitKey(1)
